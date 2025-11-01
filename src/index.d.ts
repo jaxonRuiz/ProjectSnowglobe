@@ -31,6 +31,7 @@ interface Point {
 
 interface Color {
 	hex: string;
+	// opacity: number;
 }
 
 interface GlobeGlass {
