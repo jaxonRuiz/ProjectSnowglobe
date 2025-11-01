@@ -1,0 +1,9 @@
+* {
+    /* testing */
+    border: 1px red solid;
+}
+
+#snowglobe-creation {
+    display: flex;
+    flex-direction: row;
+}
