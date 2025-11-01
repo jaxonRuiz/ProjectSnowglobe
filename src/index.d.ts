@@ -1,15 +1,19 @@
 interface State {
-	color: Color;
-	globe: GlobeGlass;
-	base: GlobeBase;
-	ctx: CanvasCtx;
+	pen: {
+		color: Color;
+		line: Line | null;
+	};
+	canvas: CanvasCtx;
+	// globe: GlobeGlass;
+	// base: GlobeBase;
 }
 
 interface CanvasCtx {
+	ctx: CanvasRenderingContext2D;
   content: Command[];
   undoBuffer: Command[];
   notify: () => void;
-  display: (ctx: CanvasRenderingContext2D) => void;
+  display: () => void;
   add: (command: Command) => void;
   undo: () => void;
   redo: () => void;
@@ -38,4 +42,11 @@ interface GlobeGlass {
 interface GlobeBase {
 	color: Color;
 	// design: number;
+}
+
+interface Line extends Command {
+  points: Point[];
+  width: number;
+  color: string;
+  extend: (point: Point) => void;
 }
